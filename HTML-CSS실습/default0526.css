@@ -1,0 +1,304 @@
+:root {
+    background-color: #cccccc;
+}
+
+h1 {
+    color: red;
+}
+
+.wrapper {
+    border: 1px solid black;
+    width: 598px;
+    height: 400px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+.inside {
+    border: #ff0000 1px solid;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+
+a:hover {
+    color: red;
+    font-weight: bold;
+}
+
+a:active {
+    color: green;
+    font-weight: bold;
+}
+
+.myform input {
+    background-color: pink;
+}
+
+.myform input:focus {
+    width: 100px;
+}
+
+.myList li:first-child {
+    color: green;
+    font-weight: bold;
+}
+
+.myList li:last-child {
+    color: red;
+    font-weight: bold;
+}
+
+.myList li:nth-child(3n) {
+    color: orange;
+    font-weight: bold;
+}
+
+.myList li:nth-child(even) {
+    background-color: gray;
+}
+
+
+.myList li:nth-child(odd) {
+    background-color: yellow;
+    font-weight: bold;
+}
+
+
+
+
+#rounded1 {
+    line-height: 100px;
+    background: lightblue;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+#rounded2 {
+    line-height: 100px;
+    background: orange;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+#rounded3 {
+    line-height: 100px;
+    background: pink;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    border-radius: 70px;
+}
+
+img {
+    max-height: 300px;
+    width: 300px;
+    border-radius: 100px;
+}
+
+
+
+
+#border-img {
+    border: 10px solid;
+    border-image: url(./border.png) 30 round;
+}
+
+#my-bg {
+    background-image: url(./border.png), url(./background.jpg);
+    background-position: left top, right bottom;
+    background-repeat: repeat, no-repeat;
+    padding: 20px;
+    background-size: 50px 50px, cover;
+}
+
+#grad1 {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(to right, red, yellow);
+}
+
+#grad2 {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(to bottom right, pink, purple);
+}
+
+#grad3 {
+    width: 200px;
+    height: 50px;
+    background: radial-gradient(red, yellow, green);
+}
+
+#grad4 {
+    width: 200px;
+    height: 50px;
+    background: radial-gradient(circle, lightblue, blue)
+}
+
+
+
+h1.text1 {
+    text-shadow: 4px 4px 3px blue;
+}
+
+h1.text2 {
+    color: #ffffff;
+    text-shadow: 2px 2px 5px black;
+}
+
+h1.text3 {
+    color: black;
+    text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+}
+
+#box1 {
+    width: 300px;
+    height: 200px;
+    background-color: #cccccc;
+    border-radius: 30px;
+    box-shadow: -8px -8px 10px rgba(255, 255, 255, 0.5),
+        8px 8px 10px rgba(70, 70, 70, 0.12);
+}
+
+#box2 {
+    width: 300px;
+    height: 200px;
+    background-color: #cccccc;
+    border-radius: 30px;
+    box-shadow: inset -8px -8px 10px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 10px rgba(70, 70, 70, 0.12);
+}
+
+.card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.card-header {
+    background-color: #ff0000;
+    padding: 10px;
+    font-size: 40px;
+}
+
+.card-header h1 {
+    color: #fff;
+}
+
+.card-container {
+    padding: 10px;
+}
+
+#border-img {
+    border: 10px solid;
+}
+
+
+#box11 {
+    width: 100px;
+    height: 100px;
+    background: black;
+    transition: width 1s, height 1s;
+    transition-timing-function: ease-out;
+}
+
+#box11:hover {
+    width: 300px;
+    height: 300px;
+}
+
+#box12 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-color: red;
+    animation-name: colorchange;
+    animation-duration: 5s;
+}
+
+@keyframes colorchange {
+    0% {
+        background-color: red;
+        left: 0;
+        top: 0;
+    }
+
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0;
+    }
+
+    50% {
+        background-color: green;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: blue;
+        left: 0;
+        top: 200px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0;
+        top: 0;
+    }
+}
+
+article {
+    column-count: 3;
+    column-gap: 40px;
+    column-rule: 1px solid coral;
+}
+
+article h1 {
+    column-span: all;
+}
+
+.textbox1 {
+    border: 2px solid;
+    padding: 20px;
+    width: 300px;
+    overflow: auto;
+    resize: both;
+}
+
+.textbox2{
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    height: 100px;
+    border: 1px solid black;
+    outline: 1px solid red;
+    outline-offset: 10px;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    height: 255px;
+    background-color: black;
+}
+
+.flex-item{
+    background-color: lightblue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+
+.first {
+    order: -1;
+}
