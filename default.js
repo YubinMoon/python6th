@@ -1,10 +1,25 @@
-var name = "이승훈";
-var age = 29;
-var cgpa = 3.92;
-var lineBreak = "<br>";
-document.write("이름: " + name + lineBreak);
-document.write("나이: " + age + lineBreak);
-document.write("학점: " + cgpa + lineBreak);
+//문자열 연결하기
+var lName = "홍";
+var fName = "길동";
+var fullName = lName + fName;
+console.log(fullName);
+console.log("Today is " + "a" + "beautiful day");
+console.log("My name is " + fullName);
+var num1 = 20;
+var num2 = 30;
+var sum = num1 + num2;
+console.log(num1 + num2);
+console.log("" + num1 + num2);
+console.log(num1 + " + " + num2 + " = " + sum);
+
+// variable
+// var name = "이승훈";
+// var age = 29;
+// var cgpa = 3.92;
+// var lineBreak = "<br>";
+// document.write("이름: " + name + lineBreak);
+// document.write("나이: " + age + lineBreak);
+// document.write("학점: " + cgpa + lineBreak);
 
 // // type
 // console.log(123, typeof 123);
