@@ -1,3 +1,16 @@
+var num1 = parseFloat(prompt("Enter first number : "));
+var num2 = parseFloat(prompt("Enter second number : "));
+var lineBreak = "<br>";
+var result = num1 + num2;
+document.write("the sum is : " + result + lineBreak);
+result = num1 - num2;
+document.write("the sub is : " + result + lineBreak);
+result = num1 * num2;
+document.write("the multiplication is : " + result + lineBreak);
+result = num1 / num2;
+document.write("the division is : " + result + lineBreak);
+result = num1 % num2;
+document.write("the remainder is : " + result + lineBreak);
 
 // // type 변환
 // var num = "20";
