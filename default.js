@@ -1,16 +1,23 @@
-var num1 = parseFloat(prompt("Enter first number : "));
-var num2 = parseFloat(prompt("Enter second number : "));
-var lineBreak = "<br>";
-var result = num1 + num2;
-document.write("the sum is : " + result + lineBreak);
-result = num1 - num2;
-document.write("the sub is : " + result + lineBreak);
-result = num1 * num2;
-document.write("the multiplication is : " + result + lineBreak);
-result = num1 / num2;
-document.write("the division is : " + result + lineBreak);
-result = num1 % num2;
-document.write("the remainder is : " + result + lineBreak);
+// 소수
+var base = parseFloat(prompt("Enter 밑변 : "));
+var height = parseFloat(prompt("Enter 높이 : "));
+var area = base * height * 0.5;
+document.write("삼각형의 넓이 : " + area);
+
+// // 연산자
+// var num1 = parseFloat(prompt("Enter first number : "));
+// var num2 = parseFloat(prompt("Enter second number : "));
+// var lineBreak = "<br>";
+// var result = num1 + num2;
+// document.write("the sum is : " + result + lineBreak);
+// result = num1 - num2;
+// document.write("the sub is : " + result + lineBreak);
+// result = num1 * num2;
+// document.write("the multiplication is : " + result + lineBreak);
+// result = num1 / num2;
+// document.write("the division is : " + result + lineBreak);
+// result = num1 % num2;
+// document.write("the remainder is : " + result + lineBreak);
 
 // // type 변환
 // var num = "20";
