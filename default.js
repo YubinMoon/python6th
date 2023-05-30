@@ -1,3 +1,21 @@
+
+// // type 변환
+// var num = "20";
+// num = num.toString();
+// console.log(typeof num);
+// var number = 20;
+// console.log(typeof number);
+// number = number.toString();
+// console.log(number, typeof number);
+// var x = 2.56789;
+// console.log(x.toFixed(2));
+// console.log(x.toPrecision(2));
+// console.log(Number(true));
+// console.log(Number(false));
+// console.log(Number("10"));
+// console.log(Number("  10  "));
+// console.log(Number("10.25"));
+
 // // 문자열 함수
 // var text = prompt("Enter your name");
 // document.write("your name : " + text + "<br/>");
