@@ -1,29 +1,38 @@
-// 제어문
-var num1 = parseInt(prompt("첫번째 숫자 입력 : "));
-var num2 = parseInt(prompt("두번째 숫자 입력 : "));
-if (num1 > num2) {
-	document.write("큰 수 num1 : " + num1);
-}
-if (num1 < num2) {
-	document.write("큰 수 num2 : " + num2);
-}
-if (num1 == num2) {
-	document.write("같은 수");
-}
-if (num > num2) {
-	document.write("큰 수 num1 : " + num1);
-} else if (num1 < num2) {
-	document.write("큰 수 num2 : " + num2);
-} else if (num1 == num2) {
-	document.write("같은 수");
-}
-if (num > num2) {
-	document.write("큰 수 num1 : " + num1);
-} else if (num1 < num2) {
-	document.write("큰 수 num2 : " + num2);
+// 모음 찾기
+var letter = prompt("Enter a letter : ");
+letter = letter.toLowerCase();
+if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u") {
+	console.log("voewl");
 } else {
-	document.write("같은 수");
+	console.log("Consonant");
 }
+
+// // 제어문
+// var num1 = parseInt(prompt("첫번째 숫자 입력 : "));
+// var num2 = parseInt(prompt("두번째 숫자 입력 : "));
+// if (num1 > num2) {
+// 	document.write("큰 수 num1 : " + num1);
+// }
+// if (num1 < num2) {
+// 	document.write("큰 수 num2 : " + num2);
+// }
+// if (num1 == num2) {
+// 	document.write("같은 수");
+// }
+// if (num > num2) {
+// 	document.write("큰 수 num1 : " + num1);
+// } else if (num1 < num2) {
+// 	document.write("큰 수 num2 : " + num2);
+// } else if (num1 == num2) {
+// 	document.write("같은 수");
+// }
+// if (num > num2) {
+// 	document.write("큰 수 num1 : " + num1);
+// } else if (num1 < num2) {
+// 	document.write("큰 수 num2 : " + num2);
+// } else {
+// 	document.write("같은 수");
+// }
 // // 비교문
 // var num1 = 20;
 // var num2 = 10;
