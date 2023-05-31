@@ -1,25 +1,49 @@
-// 즉시 실행 함수
-(function display(message) {
-	console.log(message);
-})("hi");
-var display2 = function displayMessage(msg) {
-	console.log(msg);
-};
-var display3 = function (msg) {
-	console.log(msg);
-};
-var display4 = (msg) => {
-	console.log(msg);
-};
-(function addition(a, b) {
-	console.log(a + b);
-})(1, 2);
-(function (a, b) {
-	console.log(a + b);
-})(10, 20);
-((a, b) => {
-	console.log(a + b);
-})(30, 40);
+// 배열
+var names = new Array(20);
+names[0] = "지훈";
+names[1] = "은영";
+console.log(names[1]);
+// 값을 가진 배열 생성하기
+var students = ["지훈", "은영", "민지", "현주"];
+console.log("students = " + students);
+console.log("2번 인덱스의 학생: " + students[2]);
+// 배열의 길이 찾기
+console.log("학생 배열의 길이: " + students.length);
+// 배열에 요소 추가하기
+students.push("정인");
+console.log("push 후 학생 배열 = " + students);
+// 배열의 요소 삭제하기
+students.pop();
+console.log("pop 후 학생 배열 = " + students);
+// 배열 연결하기
+var numArray1 = [10, 20];
+var numArray2 = [30, 40, 50, 60];
+var numArray = numArray1.concat(numArray2);
+console.log("배ㅐ열 잇기(concatination) = " + numArray);
+console.log(numArray1 + numArray2);
+
+// // 즉시 실행 함수
+// (function display(message) {
+// 	console.log(message);
+// })("hi");
+// var display2 = function displayMessage(msg) {
+// 	console.log(msg);
+// };
+// var display3 = function (msg) {
+// 	console.log(msg);
+// };
+// var display4 = (msg) => {
+// 	console.log(msg);
+// };
+// (function addition(a, b) {
+// 	console.log(a + b);
+// })(1, 2);
+// (function (a, b) {
+// 	console.log(a + b);
+// })(10, 20);
+// ((a, b) => {
+// 	console.log(a + b);
+// })(30, 40);
 
 // // fuction
 // // 매개변수가 없는 함수
