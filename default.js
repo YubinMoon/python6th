@@ -1,16 +1,28 @@
-// while 반복
-var i = 1;
-
-do {
-	document.write("멋쟁이사자 : " + i++ + "<br/>");
-} while (i <= 10);
-
-document.write("============<br/>");
-
-var j = 1;
-while (j <= 10) {
-	document.write("멋쟁이사자 : " + j++ + "<br/>");
+// break, continue
+for (var k = 1; k <= 100; k++) {
+	if (k == 20) {
+		break;
+	}
+	document.write(k + "<br />");
 }
+document.write("============<br/>");
+for (var k = 1; k <= 100; k++) {
+	if (k == 20) {
+		continue;
+	}
+	document.write(k + "<br />");
+}
+
+// // while 반복
+// var i = 1;
+// do {
+// 	document.write("멋쟁이사자 : " + i++ + "<br/>");
+// } while (i <= 10);
+// document.write("============<br/>");
+// var j = 1;
+// while (j <= 10) {
+// 	document.write("멋쟁이사자 : " + j++ + "<br/>");
+// }
 
 // // switch
 // var digit = parseInt(prompt("Enter a digit : "));
