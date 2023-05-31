@@ -1,11 +1,49 @@
-// 모음 찾기
-var letter = prompt("Enter a letter : ");
-letter = letter.toLowerCase();
-if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u") {
-	console.log("voewl");
-} else {
-	console.log("Consonant");
+// switch
+var digit = parseInt(prompt("Enter a digit : "));
+switch (digit) {
+	case 0:
+		document.write("zero");
+		break;
+	case 1:
+		document.write("one");
+		break;
+	case 2:
+		document.write("two");
+		break;
+	case 3:
+		document.write("three");
+		break;
+	case 4:
+		document.write("four");
+		break;
+	case 5:
+		document.write("five");
+		break;
+	case 6:
+		document.write("six");
+		break;
+	case 7:
+		document.write("seven");
+		break;
+	case 8:
+		document.write("eight");
+		break;
+	case 9:
+		document.write("nine");
+		break;
+	default:
+		document.write("not a digit");
+		break;
 }
+
+// // 모음 찾기
+// var letter = prompt("Enter a letter : ");
+// letter = letter.toLowerCase();
+// if (letter == "a" || letter == "e" || letter == "i" || letter == "o" || letter == "u") {
+// 	console.log("voewl");
+// } else {
+// 	console.log("Consonant");
+// }
 
 // // 제어문
 // var num1 = parseInt(prompt("첫번째 숫자 입력 : "));
