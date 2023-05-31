@@ -1,25 +1,48 @@
-// fuction
-// 매개변수가 없는 함수
-function message() {
-	document.write("Hloow, I am a function without parameter" + "<br/>");
-}
-// 한 개의 애개변수를 가진 함수 생성하기
-function welcomMessage(name) {
-	document.write("welcome " + name + "<br/>");
-}
-// 여러 개의 매개변수를 가진 함수 생성하기
-function addition(num1, num2) {
-	var num = num1 + num2;
-	document.write("addition is " + num + "<br/>");
-}
-// 값을 반환하는 함수 생성하기
-function square(num) {
-	return num * num;
-}
-message();
-welcomMessage("홍길동");
-addition(2, 3);
-document.write("square of 5 is " + square(5) + "<br/>");
+// 즉시 실행 함수
+(function display(message) {
+	console.log(message);
+})("hi");
+var display2 = function displayMessage(msg) {
+	console.log(msg);
+};
+var display3 = function (msg) {
+	console.log(msg);
+};
+var display4 = (msg) => {
+	console.log(msg);
+};
+(function addition(a, b) {
+	console.log(a + b);
+})(1, 2);
+(function (a, b) {
+	console.log(a + b);
+})(10, 20);
+((a, b) => {
+	console.log(a + b);
+})(30, 40);
+
+// // fuction
+// // 매개변수가 없는 함수
+// function message() {
+// 	document.write("Hloow, I am a function without parameter" + "<br/>");
+// }
+// // 한 개의 애개변수를 가진 함수 생성하기
+// function welcomMessage(name) {
+// 	document.write("welcome " + name + "<br/>");
+// }
+// // 여러 개의 매개변수를 가진 함수 생성하기
+// function addition(num1, num2) {
+// 	var num = num1 + num2;
+// 	document.write("addition is " + num + "<br/>");
+// }
+// // 값을 반환하는 함수 생성하기
+// function square(num) {
+// 	return num * num;
+// }
+// message();
+// welcomMessage("홍길동");
+// addition(2, 3);
+// document.write("square of 5 is " + square(5) + "<br/>");
 
 // // break, continue
 // for (var k = 1; k <= 100; k++) {
