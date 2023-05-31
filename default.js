@@ -1,8 +1,13 @@
-// 소수
-var base = parseFloat(prompt("Enter 밑변 : "));
-var height = parseFloat(prompt("Enter 높이 : "));
-var area = base * height * 0.5;
-document.write("삼각형의 넓이 : " + area);
+// 온도 변환
+var cels = parseFloat(prompt("섭씨 입력 : "));
+var farn = cels * (9 / 5) + 32;
+document.write("화씨 : " + farn);
+
+// // 소수
+// var base = parseFloat(prompt("Enter 밑변 : "));
+// var height = parseFloat(prompt("Enter 높이 : "));
+// var area = base * height * 0.5;
+// document.write("삼각형의 넓이 : " + area);
 
 // // 연산자
 // var num1 = parseFloat(prompt("Enter first number : "));
