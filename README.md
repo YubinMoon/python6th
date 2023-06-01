@@ -11,3 +11,7 @@
 ## 5월 30일-31일
 
 - [JS 실습](./javascript%EC%8B%A4%EC%8A%B5/default.js)
+
+## 6월 1일
+
+- [bootstrap 실습]()
