@@ -17,25 +17,56 @@
 			<div class="container">
 				<div class="d-flex justify-content-between align-items-center">
 					<h1 class="text-white p-2 m-0">TodoList</h1>
-					<button id="clear" class="btn btn-danger btn-sm" type="button">Clear</button>
+					<button id="clear" class="btn btn-danger btn-sm" type="button" onclick="clearAll()">Clear</button>
 				</div>
 			</div>
 		</header>
 		<main>
 			<section class="mt-5 mx-auto" style="max-width: 720px">
 				<div class="container">
-					<form class="" onsubmit="addTodo()">
+					<div class="d-flex justify-content-between align-items-center">
+						<div id="tabList" class="col">
+							<button class="btn btn-outline-info btn-sm" onclick="moveTab(1)">asdasdfasdffa</button>
+							<button class="btn btn-outline-info btn-sm">asdasdfasdffa</button>
+							<button class="btn btn-outline-info btn-sm">asdasdfasdffa</button>
+							<button class="btn btn-outline-info btn-sm">asdasdfasdffa</button>
+							<button class="btn btn-outline-info btn-sm">asdasdfasdffa</button>
+						</div>
+						<button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h1 class="modal-title fs-5" id="exampleModalLabel">New Tab</h1>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<form>
+											<label for="newTabName" class="col-form-label">Name:</label>
+											<input type="text" class="form-control" id="newTabName" />
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="addTab()">Add</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<form class="">
 						<label for="todo">add todo</label>
 						<div class="d-flex justify-content-between mt-1">
 							<div class="col-9 me-2">
 								<input id="todo" class="form-control" type="text" />
 							</div>
 							<div class="col d-grid">
-								<input class="btn btn-primary" type="submit" value="추가" />
+								<input class="btn btn-primary" type="button" value="추가" onclick="addTodo()" />
 							</div>
 						</div>
 					</form>
 					<ul id="todoList" class="list-group list-group-flush mt-2"></ul>
+					<div class="p-5"></div>
 				</div>
 			</section>
 		</main>
@@ -50,11 +81,14 @@
 			crossorigin="anonymous"></script>
 		<script>
 			var todoData = [];
+			var currentTab = 0;
 
 			function getLocal() {
 				var localData = localStorage.getItem("todoData");
 				if (localData) {
 					todoData = JSON.parse(localData);
+				} else {
+					todoData = [{ name: "Todo", list: [] }];
 				}
 			}
 
@@ -64,30 +98,75 @@
 
 			function drawTodo() {
 				var todoList = document.getElementById("todoList");
+				var tabList = document.getElementById("tabList");
 				todoList.innerHTML = "";
+				tabList.innerHTML = "";
 				todoData.map((todo, i) => {
-					var string = `<li class="list-group-item d-flex justify-content-between align-items-center">	<span class="align-self-start fs-5 me-2">${
-						i + 1
-					}. </span><span class="text-break flex-grow-1 me-2 pe-2 border-end border-1 border-black">${todo}</span><button id="test" class="btn btn-danger btn-sm" onclick="deleteTodo(${i})">Delete</button></li>`;
+					// add todo
+					if (i != currentTab) {
+						var string = `<button class="me-1 mb-1 btn btn-outline-success btn-sm" onclick="moveTab(${i})">${todo.name}</button>`;
+					} else {
+						var string = `<button class="me-1 mb-1 btn btn-success btn-sm" onclick="moveTab(${i})">${todo.name}</button>`;
+					}
+					var btn = document.createElement("div");
+					btn.innerHTML = string;
+					tabList.appendChild(btn.firstChild);
 
-					var li = document.createElement("div");
-					li.innerHTML = string;
-					todoList.appendChild(li.firstChild);
+					// add list
+					if (i === currentTab) {
+						todo.todo.map((todo, i) => {
+							var string = `<li class="list-group-item d-flex justify-content-between align-items-center">	<span class="align-self-start fs-5 me-2">${
+								i + 1
+							}. </span><span class="text-break flex-grow-1 me-2 pe-2 border-end border-1 border-black">${todo}</span><button id="test" class="btn btn-danger btn-sm" onclick="deleteTodo(${i})">Delete</button></li>`;
+							var li = document.createElement("div");
+							li.innerHTML = string;
+							todoList.appendChild(li.firstChild);
+						});
+					}
 				});
+				console.log(todoData);
 			}
 
 			function addTodo() {
 				var todo = document.getElementById("todo");
-				todoData.push(todo.value);
+				if (todo.value == "") {
+					return;
+				}
+				console.log(todoData[currentTab]);
+				todoData[currentTab].todo.push(todo.value);
 				todo.value = "";
 				drawTodo();
 				setLocal();
 			}
 
 			function deleteTodo(num) {
-				todoData.splice(num, 1);
+				todoData[currentTab].todo.splice(num, 1);
 				drawTodo();
 				setLocal();
+			}
+
+			function addTab() {
+				var newTabName = document.getElementById("newTabName");
+				if (newTabName.value == "") {
+					return;
+				}
+				todoData.push({ name: newTabName.value, todo: [] });
+				newTabName.value = "";
+				drawTodo();
+				setLocal();
+			}
+
+			function moveTab(num) {
+				currentTab = num;
+				console.log(num);
+				drawTodo();
+				setLocal();
+			}
+
+			function clearAll() {
+				todoData = [{ name: "Todo", todo: [] }];
+				setLocal();
+				drawTodo();
 			}
 			getLocal();
 			drawTodo();
