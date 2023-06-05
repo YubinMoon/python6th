@@ -1,22 +1,24 @@
-# 암시적 타입 변환
+# 명시적 타입 변환
 a = 5
 b = 2
-print(b, type(b))
 value = a / b
 print(value, type(value))
+int_value = int(value)
+print(int_value, type(int_value))
 
-x = 10
-y = 5.5
-total = x + y
-print(total, type(total))
+q = 20
+u = "10"
+print(u, type(u))
+r = q + int(u)
+print(r, type(r))
+r = str(q) + u
+print(r, type(r))
 
-j = "Hello"
-k = "like lion"
-p = j + k
-print(p, type(p))
+n1 = 10.77
+vn1 = int(n1)
 
-## TypeError: unsupported operand type(s) for +: 'int' and 'str'
-# q = 20
-# u = "10"
-# r = q + u
-# print(r, type(r))
+print(vn1, type(vn1))
+
+n1 = 10
+vn1 = complex(n1)
+print(vn1, type(vn1))
