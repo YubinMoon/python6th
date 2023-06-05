@@ -14,4 +14,8 @@
 
 ## 6월 1일
 
-- [bootstrap 실습]()
+- [bootstrap 실습](./index.html)
+
+## 6월 5일
+
+- [python 실습](./main.py)
