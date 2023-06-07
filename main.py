@@ -1,9 +1,10 @@
-def disp():
-    def show():
-        return "Show Function"
-
-    result = show() + "Disp Function"
-    return result
+def dlsp(sh):
+    print(type(sh))
+    print("Dlsp Function", sh())
 
 
-print(disp())
+def show():
+    return " Show Function"
+
+
+dlsp(show)
