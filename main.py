@@ -1,29 +1,29 @@
 fruits = ["apple", "banana", "cherry", "orange"]
-print(fruits)
+vegetables = ["carrot", "cucumber"]
 
-fruits.append("grape")
-print(fruits)
+grocery = fruits + vegetables
+print(grocery)
 
-fruits.insert(2, "kiwi")
-print(fruits)
+numbers = [10, 5, 8, 1, 7]
+numbers.sort()
+print(numbers)
 
-print(fruits.pop())
-print(fruits)
+slice_numbers = numbers[1:4]
+print(slice_numbers)
 
-print(fruits.pop(1))
-print(fruits)
+alias_numbers = numbers
+print(alias_numbers)
 
-fruits.append("cherry")
-print(fruits)
-fruits.remove("cherry")
-print(fruits)
+numbers_copy = numbers.copy()
+print(numbers_copy)
 
-print(fruits.index("cherry"))
-print(fruits.remove("cherry"))
-print(fruits)
+numbers_clone = numbers[:]
+print(numbers_clone)
 
-# fruits.remove("cherry") # Error
-
-print(fruits)
-fruits.reverse()
-print(fruits)
+print(id(numbers))
+print(id(alias_numbers))
+print(id(numbers_copy))
+print(id(numbers_clone))
+print(alias_numbers is numbers)
+print(numbers_copy is numbers)
+print(numbers_clone is numbers)
