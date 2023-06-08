@@ -3,7 +3,7 @@
 팀원: 문건우, 한민호, 이예슬, 이한솔
 
 ## 주제
-- [논리연산/게이트](#논리연산/게이트)
+- [논리연산/게이트](https://thecrashcourse.com/courses/boolean-logic-logic-gates-crash-course-computer-science-3/)
 - [이진수](https://thecrashcourse.com/courses/representing-numbers-and-letters-with-binary-crash-course-computer-science-4/)
 
 ## 논리연산/게이트
