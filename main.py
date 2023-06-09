@@ -1,19 +1,22 @@
-filename = "example.txt"
-
-print("파일이 존재하는지 확인하기")
-
 import os
 
-if os.path.isfile(filename):
-    print(f"{filename}이 존재합니다.")
-else:
-    print(f"{filename}이 존재하지 않습니다.")
+current_directory = os.getcwd()
+print(current_directory)
 
-file_object = open("list_example.txt", "w")
+os.mkdir("example")  # 단일 폴더
+os.makedirs("parent_dir/child_dir")  # 여러 폴더
 
-content_list = ["Python", "Java", "C++", "Javascript"]
+# os.chdir("venv")
+# current_directory2 = os.getcwd()
+# print(current_directory2)
 
-for item in content_list:
-    file_object.write(item + "\n")
+os.rename("example", "new_example")
 
-file_object.close()
+os.rmdir("new_example")
+os.removedirs("parent_dir/child_dir")  # 여러 폴더
+
+for dirpath, dirnames, filenames in os.walk(os.getcwd()):
+    print("Current Path: ", dirpath)
+    print("Directories: ", dirnames)
+    print("Files: ", filenames)
+    print()
