@@ -1,43 +1,24 @@
-stu = {101: "Kim", 102: "Bae", 103: "Hong"}
-fees = {"kim": 2000, "bae": 3000, "hong": 8000}
-print(stu[101])
-print(stu[102])
-print(stu[103])
+class Mobile:
+    fp = "yes"
 
-print(fees["kim"])
-print(fees["bae"])
-print(fees["hong"])
 
-stu[102] = "Python"
-print(stu)
-stu[104] = "멋쟁이사자"
-print(stu)
-del stu[102]
-print(stu)
+realme = Mobile()
+redme = Mobile()
+geek = Mobile()
 
-print(102 not in stu)
+print(Mobile.fp)
+print(realme.fp)
+print(redme.fp)
+print(geek.fp)
 
-# stu.clear()
-# print(stu)
-
-new_stu = stu.copy()
-
-key = (101, 102, 103)
-value = "멋쟁이사자"
-new_stu = dict.fromkeys(key, value)
-print(new_stu)
-
-print(stu[101])
-print(stu.get(101))
-print(stu.items())
-print(stu.keys())
-print(stu.values())
-stu.update({104: "멋쟁이사자"})
-print(stu)
-print(stu.pop(104))
-print(stu)
-print(stu.pop(104, "No Value"))
-stu.setdefault(104, "Park")
-print(stu)
-
-print(stu.popitem())
+Mobile.fp = "no"
+print(Mobile.fp)
+print(realme.fp)
+print(redme.fp)
+print(geek.fp)
+print("-------------")
+realme.fp = "Not Working"
+print(Mobile.fp)
+print(realme.fp)
+print(redme.fp)
+print(geek.fp)
