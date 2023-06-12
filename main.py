@@ -1,6 +1,7 @@
 try:
-    result = 10 / 0
-except ZeroDivisionError:
-    print("Error Dvision by zero")
-
-print("program continues")
+    number = int("Not a number")
+    number = 5 + "abc"
+except ValueError:
+    print("Error: Invalid value.")
+except TypeError:
+    print("Error: Invalid type.")
