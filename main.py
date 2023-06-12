@@ -1,10 +1,6 @@
-def test():
-    try:
-        return "abc"
-    except:
-        return "aaa"
-    finally:
-        return "CCC"
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Error Dvision by zero")
 
-
-print(test())
+print("program continues")
