@@ -1,22 +1,23 @@
-import os
+# 부모 클래스
+class Vehicle:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
 
-current_directory = os.getcwd()
-print(current_directory)
+    def start_engine(self):
+        return "The engine is running!"
 
-os.mkdir("example")  # 단일 폴더
-os.makedirs("parent_dir/child_dir")  # 여러 폴더
 
-# os.chdir("venv")
-# current_directory2 = os.getcwd()
-# print(current_directory2)
+# 자식 클래스
+class Car(Vehicle):
+    def start_engine(self):
+        return super().start_engine() + " It's a car engine."
 
-os.rename("example", "new_example")
 
-os.rmdir("new_example")
-os.removedirs("parent_dir/child_dir")  # 여러 폴더
+# 인스턴스 생성
+my_car = Car("Kia", "Tucson", 2020)
 
-for dirpath, dirnames, filenames in os.walk(os.getcwd()):
-    print("Current Path: ", dirpath)
-    print("Directories: ", dirnames)
-    print("Files: ", filenames)
-    print()
+
+# 메소드 호출
+print(my_car.start_engine())
