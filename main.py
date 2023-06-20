@@ -1,43 +1,36 @@
-import collections
-
-graph = {
-    "A": ["B", "C"],
-    "B": ["A", "B", "E"],
-    "C": ["A", "F"],
-    "D": ["B"],
-    "E": ["B", "F"],
-    "F": ["C", "E"],
-}
-
-visited = set()
+from urllib.request import urlopen
+from html.parser import HTMLParser
 
 
-def bfs_iterative(start_node):
-    queue = collections.deque([start_node])
+class ImageParse(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.image_list = []
 
-    while queue:
-        node = queue.popleft()
-        if node not in visited:
-            print(node, end=" ")
-            visited.add(node)
-            queue.extend(graph[node])
-    visited.clear()
-    print()
-
-
-def dfs_iterative(start_noe):
-    stack = [start_noe]
-
-    while stack:
-        node = stack.pop()
-        if node not in visited:
-            print(node, end=" ")
-            visited.add(node)
-            stack.extend(reversed(graph[node]))
-    visited.clear()
-    print()
+    def handle_starttag(self, tag, attrs):
+        if tag != "img":
+            return
+        for name, value in attrs:
+            if name == "src":
+                self.image_list.append(value)
 
 
-snode = "A"
-dfs_iterative(snode)
-bfs_iterative(snode)
+def parse_image(data):
+    parser = ImageParse()
+    parser.feed(data)
+    data_set = set(x for x in parser.image_list)
+    return data_set
+
+
+def main():
+    url = "https://www.google.com"
+    with urlopen(url) as f:
+        charset = f.headers.get_params("charset")[1][1]
+        data = f.read().decode(charset)
+    image_set = parse_image(data)
+    print("\n>>>> Fetch Images From", url)
+    print("\n".join(sorted(image_set)))
+
+
+if __name__ == "__main__":
+    main()
