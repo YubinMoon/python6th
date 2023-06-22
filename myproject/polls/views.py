@@ -6,7 +6,7 @@ from polls.models import Question, Choice
 
 def index(request):
     lastest_question_list = Question.objects.order_by("-pub_date")[:5]
-    content = {"lastest_question_list": lastest_question_list}
+    content = {"lastest_question_list": lastest_question_list, "value": [1, 2, 3]}
     return render(request, "polls/index.html", content)
 
 
