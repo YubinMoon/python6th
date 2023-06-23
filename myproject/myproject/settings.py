@@ -131,16 +131,27 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
-        "console": {
-            "format": "[%(asctime)s] [%(levelname)s] %(message)s",
+        "verbose": {
+            "format": "[%(astime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
             "datefmt": "%d/%b/%Y %H:%M:%S",
-        }
+        },
     },
     "handlers": {
-        "console": {"class": "logging.StreamHandler", "formatter": "console"},
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": BASE_DIR / "logs" / "development.log",
+            "formatter": "verbose",
+        },
     },
     "loggers": {
-        "django": {"level": "INFO", "handlers": ["console"]},
-        "": {"level": "DEBUG", "handlers": ["console"]},
+        "polls": {
+            "handlers": ["file"],
+            "level": "DEBUG",
+        },
+        "": {
+            "handlers": ["file"],
+            "level": "INFO",
+        },
     },
 }
