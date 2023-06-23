@@ -1,7 +1,5 @@
 import logging
-
 from django.views.generic import TemplateView
-
 from django.apps import apps
 
 

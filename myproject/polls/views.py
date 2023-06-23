@@ -17,15 +17,14 @@ class IndexView(generic.ListView):
         return Question.objects.all().order_by("-pub_date")[:5]
 
 
-def index(request):
-    lastest_question_list = Question.objects.order_by("-pub_date")[:5]
-    content = {"lastest_question_list": lastest_question_list, "value": [1, 2, 3]}
-    return render(request, "polls/index.html", content)
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = "polls/detail.html"
 
 
-def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/detail.html", {"question": question})
+class ResultView(generic.DetailView):
+    model = Question
+    template_name = "polls/result.html"
 
 
 def vote(request, question_id):
@@ -43,8 +42,3 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
-
-
-def results(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, "polls/results.html", {"question": question})
