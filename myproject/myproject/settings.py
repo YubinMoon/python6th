@@ -32,7 +32,7 @@ STRING_INVALID = "Invalid string"
 # Application definition
 
 INSTALLED_APPS = [
-    "polls.apps.PollsConfig",
+    "pooks.apps.BooksConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
