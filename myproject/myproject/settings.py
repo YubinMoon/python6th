@@ -132,7 +132,7 @@ LOGGING = {
     "disable_existing_loggers": False,
     "formatters": {
         "verbose": {
-            "format": "[%(astime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
             "datefmt": "%d/%b/%Y %H:%M:%S",
         },
     },
@@ -148,10 +148,6 @@ LOGGING = {
         "polls": {
             "handlers": ["file"],
             "level": "DEBUG",
-        },
-        "": {
-            "handlers": ["file"],
-            "level": "INFO",
         },
     },
 }
