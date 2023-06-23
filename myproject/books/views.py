@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from books.models import Book, Author, Publisher
 
 
 class BooksModelView(TemplateView):
@@ -9,3 +10,15 @@ class BooksModelView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["model_list"] = ["Book", "Author", "Publisher"]
         return context
+
+
+class BookList(ListView):
+    model = Book
+
+
+class AuthorList(ListView):
+    model = Author
+
+
+class PublisherList(ListView):
+    model = Publisher
