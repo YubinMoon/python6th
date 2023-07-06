@@ -1,36 +1,30 @@
-from urllib.request import urlopen
-from html.parser import HTMLParser
+import psycopg2
+from psycopg2 import sql
 
+conn = psycopg2.connect("host=main dbname=library user=user1 password=asdf")
+cur = conn.cursor()
 
-class ImageParse(HTMLParser):
-    def __init__(self):
-        super().__init__()
-        self.image_list = []
+# cur.execute(
+#     """
+# CREATE TABLE test_table (
+# id SERIAL PRIMARY KEY,
+# name VARCHAR(50))
+# """
+# )
 
-    def handle_starttag(self, tag, attrs):
-        if tag != "img":
-            return
-        for name, value in attrs:
-            if name == "src":
-                self.image_list.append(value)
+# conn.commit()
 
+# cur.execute("INSERT INTO test_table (name) VALUES (%s)", ("tset1",))
+# cur.execute("INSERT INTO test_table (name) VALUES (%s)", ("test2",))
+# conn.commit()
 
-def parse_image(data):
-    parser = ImageParse()
-    parser.feed(data)
-    data_set = set(x for x in parser.image_list)
-    return data_set
+# cur.execute("INSERT INTO test_table (name) VALUES (%s)", ("TEST_NAME",))
+# conn.commit()
 
+cur.execute("SHOW ALL;")
+rows = cur.fetchall()
+for row in rows:
+    print(row)
 
-def main():
-    url = "https://www.google.com"
-    with urlopen(url) as f:
-        charset = f.headers.get_params("charset")[1][1]
-        data = f.read().decode(charset)
-    image_set = parse_image(data)
-    print("\n>>>> Fetch Images From", url)
-    print("\n".join(sorted(image_set)))
-
-
-if __name__ == "__main__":
-    main()
+cur.close()
+conn.close()
