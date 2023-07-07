@@ -105,6 +105,20 @@
 		<div id="loggedIn" style="display: none">
 			<button onclick="logout()">로그아웃</button>
 		</div>
+		<div style="margin: 10px">
+			<form id="book-form">
+				<input type="text" id="book-title" />
+				<input type="submit" value="등록" />
+			</form>
+		</div>
+		<div>
+			<h1>파일 업로드</h1>
+			<form id="file-form">
+				<input type="file" id="file-input" />
+				<input type="submit" value="등록" />
+			</form>
+		</div>
+		<ul id="book-list"></ul>
 		<script>
 			document.addEventListener("DOMContentLoaded", function () {
 				const loadEl = document.querySelector("#load");
@@ -122,6 +136,53 @@
 				// firebase.performance(); // call to activate
 				//
 				// // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+				firebase
+					.firestore()
+					.collection("books")
+					.orderBy("name")
+					.onSnapshot((fulfilled) => {
+						const ulElement = document.getElementById("book-list");
+						fulfilled.docs.forEach((d) => {
+							const checkElement = document.getElementById(d.id);
+							if (!checkElement) {
+								const listElement = document.createElement("li");
+								listElement.id = d.id;
+								listElement.textContent = d.data().name;
+								ulElement.appendChild(listElement);
+							}
+						});
+					});
+
+				const bookForm = document.getElementById("book-form");
+				const bookTitle = document.getElementById("book-title");
+				bookForm.addEventListener("submit", async function (e) {
+					e.preventDefault();
+					console.log("책 등록", bookTitle.value);
+					const docRef = firebase.firestore().collection("books").doc();
+					await docRef.set({ name: bookTitle.value });
+				});
+
+				// 파일 업로드
+				const fileForm = document.getElementById("file-form");
+				const fileInput = document.getElementById("file-input");
+				fileForm.addEventListener("submit", async function (e) {
+					e.preventDefault();
+					console.log("파일 업로드", fileInput);
+					const file = fileInput.files[0];
+					if (!file) return;
+					console.log("진행");
+					try {
+						const storageRef = firebase.storage().ref("images");
+						console.log("storageRef", storageRef);
+						const snapshot = await storageRef.child(file.name).put(file);
+						console.log("업로드 완료!");
+						const url = await snapshot.ref.getDownloadURL();
+						console.log("이미지 URL:", url);
+					} catch (e) {
+						console.log(e);
+					}
+				});
 
 				// 회원 인증시 이벤트 처리
 				firebase.auth().onAuthStateChanged(function (user) {
@@ -168,6 +229,21 @@
 						console.log("HERE!!", firebase.auth());
 						console.log("email", email, "password", password);
 						await firebase.auth().createUserWithEmailAndPassword(email, password);
+					} catch (err) {
+						console.error(err);
+					}
+				});
+
+				// 로그인
+				const loginForm = document.getElementById("login-form");
+				const loginEmail = document.getElementById("login-email");
+				const loginPassword = document.getElementById("login-password");
+				loginForm.addEventListener("submit", async (e) => {
+					e.preventDefault();
+					const email = loginEmail.value;
+					const password = loginPassword.value;
+					try {
+						await firebase.auth().signInWithEmailAndPassword(email, password);
 					} catch (err) {
 						console.error(err);
 					}
